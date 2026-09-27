@@ -1,0 +1,14 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-white text-ink font-sans antialiased;
+  background-image: radial-gradient(circle at top, rgba(239,68,68,0.06), transparent 30%), linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+}
+::selection { background: rgba(239,68,68,0.2); }
+.glass { background: rgba(255,255,255,.08); backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 8px 40px rgba(0,0,0,.25); }
+.glass-light { background: rgba(255,255,255,.75); backdrop-filter: blur(18px); border: 1px solid rgba(0,0,0,.06); box-shadow: 0 10px 40px rgba(0,0,0,.08); }
+.btn { @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 font-display font-semibold text-sm transition duration-300 active:scale-95; }
+.btn-red { @apply bg-toyota text-white shadow-[0_10px_25px_rgba(239,68,68,0.35)] hover:bg-red-700 hover:shadow-[0_18px_40px_rgba(239,68,68,0.45)]; }
+.btn-ghost { @apply border border-white/40 text-white hover:bg-white hover:text-ink; }
+.input { @apply w-full rounded-xl border border-black/10 bg-white/80 px-4 py-3.5 text-sm outline-none transition focus:border-toyota focus:ring-2 focus:ring-toyota/20; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
