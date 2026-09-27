@@ -58,7 +58,7 @@ export function Footer() {
 
   return (
     <footer className="bg-ink px-5 py-16 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+      <Reveal className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl font-bold">{site.name}<span className="text-toyota">.</span></p>
           <p className="mt-2 text-white/60">{site.role}, {site.dealer}<br />{site.company}</p>
@@ -76,8 +76,10 @@ export function Footer() {
           <div className="flex gap-5">{Object.entries(socials).map(([k, v]) => <a key={k} href={v || '#'} className="capitalize hover:text-toyota">{k}</a>)}</div>
           <p className="mt-6"><a href="https://www.toyotabharat.com/" target="_blank" rel="noreferrer" className="underline hover:text-toyota">Toyota India official site ↗</a></p>
         </div>
-      </div>
-      <p className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-xs text-white/40">© {new Date().getFullYear()} {site.name}, {site.dealer}. Independent consultant site for an authorised Toyota dealership, for reference and enquiries only — not affiliated with or endorsed by Toyota Motor Corporation. Toyota, the Toyota logo and all car photography remain the property of Toyota Motor Corporation; see <a href="https://www.toyotabharat.com/" target="_blank" rel="noreferrer" className="underline">toyotabharat.com</a> for official specifications, images and pricing.</p>
+      </Reveal>
+      <Reveal>
+        <p className="mx-auto mt-12 max-w-7xl border-t border-white/10 pt-6 text-xs text-white/40">© {new Date().getFullYear()} {site.name}, {site.dealer}. Independent consultant site for an authorised Toyota dealership, for reference and enquiries only — not affiliated with or endorsed by Toyota Motor Corporation. Toyota, the Toyota logo and all car photography remain the property of Toyota Motor Corporation; see <a href="https://www.toyotabharat.com/" target="_blank" rel="noreferrer" className="underline">toyotabharat.com</a> for official specifications, images and pricing.</p>
+      </Reveal>
     </footer>
   )
 }

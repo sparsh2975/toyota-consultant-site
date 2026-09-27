@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="max-w-xl">
           <motion.p {...up(0)} className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-white/75 md:mb-5 md:text-xs md:tracking-[0.22em]">{site.dealer} · {site.city}</motion.p>
           <motion.div {...up(0.1)} className="mb-5 flex items-center gap-4 md:hidden">
-            <img src={site.photo} alt={`${site.name}, ${site.role}`} className="h-32 w-24 shrink-0 rounded-2xl border border-white/20 object-cover object-top shadow-xl" />
+            <img src={site.photo} alt={`${site.name}, ${site.role}`} className="h-40 w-[7.5rem] shrink-0 rounded-2xl border border-white/20 object-cover object-top shadow-xl" />
             <div className="min-w-0">
               <p className="truncate font-display text-lg font-semibold text-white">{site.name}</p>
               <p className="mt-1 text-sm text-white/65">{site.role}</p>

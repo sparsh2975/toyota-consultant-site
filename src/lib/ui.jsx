@@ -3,8 +3,8 @@ import { site } from '../data/config'
 export const wa = (t) => `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t)}`
 export const HELLO = "Hi, I'm interested in Toyota cars. Please assist me."
 export const Reveal = ({ children, d = 0, className = '' }) => (
-  <motion.div className={className} initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.8, delay: d, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>
+  <motion.div className={className} initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.12, margin: '-40px' }} transition={{ duration: 0.68, delay: d, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>
 )
 export const Heading = ({ title, sub, light }) => (
   <Reveal className="mb-8 max-w-2xl md:mb-12">

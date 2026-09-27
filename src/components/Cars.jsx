@@ -33,11 +33,11 @@ export function CarGrid({ onOpen }) {
             </Reveal>
           ))}
         </div>
-        <p className="mt-8 text-xs text-black/40">
+        <Reveal className="mt-8 text-xs text-black/40">
           *Ex-showroom starting prices, indicative — ask for today's on-road price and offers.
           Don't see the model you want? Ask below, or browse the full range at{' '}
           <a href="https://www.toyotabharat.com/" target="_blank" rel="noreferrer" className="underline hover:text-toyota">toyotabharat.com</a>.
-        </p>
+        </Reveal>
       </div>
     </section>
   )
