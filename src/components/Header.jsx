@@ -141,17 +141,17 @@ export const Navbar = ({ onMobileNavigate }) => {
         )}
       </AnimatePresence>
 
-      <nav aria-label="Mobile section navigation" className="fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-8px_24px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden">
-        <div className="mx-auto flex h-16 max-w-xl items-stretch px-2">
-          {[['Home', '#top'], ['Cars', '#cars'], ['Profile', '#about'], ['Reviews', '#reviews']].map(([label, href]) => (
+      <nav aria-label="Mobile section navigation" className="fixed inset-x-3 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-xl rounded-2xl border border-white/75 bg-white/75 p-1.5 shadow-[0_14px_40px_rgba(10,10,10,0.18)] backdrop-blur-2xl md:hidden">
+        <div className="flex h-14 items-stretch gap-1">
+          {[["Home", "#top"], ["Cars", "#cars"], ["Profile", "#about"], ["Families", "#happy-families"]].map(([label, href]) => (
             <a key={href} href={href} onClick={(event) => { event.preventDefault(); navigateMobile(href) }} aria-current={activeLink === href ? 'page' : undefined}
-              className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 text-[11px] font-semibold transition ${activeLink === href ? 'text-toyota' : 'text-black/55 hover:text-ink'}`}>
-              <span className={`h-1 w-5 rounded-full ${activeLink === href ? 'bg-toyota' : 'bg-transparent'}`} />
+                className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl text-[11px] font-semibold transition ${activeLink === href ? 'border border-red-100 bg-red-50/90 text-toyota shadow-sm' : 'border border-transparent text-black/55 hover:bg-white/60 hover:text-ink'}`}>
+                <span className={`h-1 w-4 rounded-full ${activeLink === href ? 'bg-toyota' : 'bg-transparent'}`} />
               <span>{label}</span>
             </a>
           ))}
           <button type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation"
-            className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 text-[11px] font-semibold transition ${menuOpen ? 'text-toyota' : 'text-black/55 hover:text-ink'}`}>
+              className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl border text-[11px] font-semibold transition ${menuOpen ? 'border-red-100 bg-red-50/90 text-toyota shadow-sm' : 'border-transparent text-black/55 hover:bg-white/60 hover:text-ink'}`}>
             <span className={`h-1 w-5 rounded-full ${menuOpen ? 'bg-toyota' : 'bg-transparent'}`} />
             <span>More</span>
           </button>
