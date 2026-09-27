@@ -14,7 +14,7 @@ function Form({ name, button, build, children, light }) {
     window.location.href = wa(build(data))
   }
   return (
-    <form onSubmit={submit} className={`space-y-4 rounded-[30px] border p-6 shadow-[0_18px_45px_rgba(15,23,42,0.08)] ${light ? 'border-neutral-200 bg-white' : 'border-white/10 bg-white/5 backdrop-blur-sm'}`}>
+    <form onSubmit={submit} className={`space-y-4 rounded-2xl border p-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)] md:rounded-[30px] md:p-6 ${light ? 'border-neutral-200 bg-white' : 'border-white/10 bg-white/5 backdrop-blur-sm'}`}>
       {children}
       <button className="btn btn-red w-full">{sent ? 'Sent. Opening WhatsApp…' : button}</button>
     </form>
@@ -42,13 +42,13 @@ const CarSelect = ({ def }) => {
 
 export function TestDrive({ pick }) {
   return (
-    <section id="drive" className="relative overflow-hidden bg-ink py-28 text-white">
+    <section id="drive" className="relative overflow-hidden bg-ink py-12 text-white md:py-28">
       <div className="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-toyota/30 blur-[120px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(239,68,68,0.12),_transparent_35%)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 md:grid-cols-2">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 md:grid-cols-2 md:gap-14 md:px-5">
         <Reveal>
           <p className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70">Book a test drive</p>
-          <h2 className="font-display text-4xl font-bold md:text-5xl">Drive it before you decide</h2>
+          <h2 className="font-display text-3xl font-bold md:text-5xl">Drive it before you decide</h2>
           <p className="mt-4 max-w-md text-white/60">Fill this form and it will be sent directly on WhatsApp so you can book your test drive quickly.</p>
         </Reveal>
         <Reveal d={0.1}>
@@ -68,10 +68,10 @@ export function TestDrive({ pick }) {
 
 export function Enquiry() {
   return (
-    <section id="enquiry" className="mx-auto max-w-3xl px-5 py-28">
-      <Reveal className="mb-10 text-center">
+    <section id="enquiry" className="mx-auto max-w-3xl px-4 py-12 md:px-5 md:py-28">
+      <Reveal className="mb-8 text-center md:mb-10">
         <p className="mb-3 inline-flex rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-toyota">Enquire now</p>
-        <h2 className="font-display text-4xl font-bold md:text-5xl">Ask me anything</h2>
+        <h2 className="font-display text-3xl font-bold md:text-5xl">Ask me anything</h2>
         <p className="mt-4 text-black/55">Prices, offers, finance, exchange. I reply within the hour in showroom hours.</p>
       </Reveal>
       <Reveal>

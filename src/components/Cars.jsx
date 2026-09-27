@@ -11,18 +11,18 @@ const Pic = ({ car, className = '' }) => car.image
 
 export function CarGrid({ onOpen }) {
   return (
-    <section id="cars" className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(239,68,68,0.06),_transparent_40%)] py-28">
+    <section id="cars" className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(239,68,68,0.06),_transparent_40%)] py-10 md:py-28">
       <div className="mx-auto max-w-7xl px-5">
         <Heading title="Find your Toyota" sub="Six ways to move. Open any model for features, specs and a test drive." />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {cars.map((c, i) => (
             <Reveal key={c.id} d={(i % 3) * 0.08}>
-              <motion.article whileHover={{ y: -8 }} className="group overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-[0_16px_45px_rgba(15,23,42,0.08)] transition-all duration-300 hover:border-red-200 hover:shadow-[0_26px_60px_rgba(15,23,42,0.12)]">
+              <motion.article whileHover={{ y: -8 }} className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-[0_16px_45px_rgba(15,23,42,0.08)] transition-all duration-300 hover:border-red-200 hover:shadow-[0_26px_60px_rgba(15,23,42,0.12)] md:rounded-[28px]">
                 <div className="relative overflow-hidden">
                   <Pic car={c} className="aspect-[16/10] w-full transition duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                 </div>
-                <div className="p-6">
+                <div className="p-4 md:p-6">
                   <p className="inline-flex rounded-full bg-red-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-toyota">{c.tag}</p>
                   <h3 className="mt-4 font-display text-2xl font-semibold text-black">{c.name}</h3>
                   <p className="mt-1 text-black/60">Starting {c.price}</p>
