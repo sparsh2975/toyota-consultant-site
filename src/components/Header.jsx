@@ -38,8 +38,38 @@ export const Navbar = ({ onMobileNavigate }) => {
   useEffect(() => {
     const syncActiveLink = () => setActiveLink(window.location.hash || '#top')
     addEventListener('hashchange', syncActiveLink)
+    addEventListener('popstate', syncActiveLink)
     syncActiveLink()
-    return () => removeEventListener('hashchange', syncActiveLink)
+    return () => {
+      removeEventListener('hashchange', syncActiveLink)
+      removeEventListener('popstate', syncActiveLink)
+    }
+  }, [])
+
+  useEffect(() => {
+    const sectionIds = ['top', 'cars', 'about', 'drive', 'happy-families', 'reviews', 'enquiry']
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean)
+    if (!sections.length) return
+
+    let frame = 0
+    const syncSectionOnScroll = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const focusLine = window.innerHeight * 0.38
+        const currentSection = sections.find((section) => {
+          const bounds = section.getBoundingClientRect()
+          return bounds.top <= focusLine && bounds.bottom > focusLine
+        })
+        if (currentSection) setActiveLink(`#${currentSection.id}`)
+      })
+    }
+
+    addEventListener('scroll', syncSectionOnScroll, { passive: true })
+    syncSectionOnScroll()
+    return () => {
+      cancelAnimationFrame(frame)
+      removeEventListener('scroll', syncSectionOnScroll)
+    }
   }, [])
 
   useEffect(() => {
@@ -69,6 +99,8 @@ export const Navbar = ({ onMobileNavigate }) => {
     ['Enquire', '#enquiry'],
   ]
   const closeMenu = () => setMenuOpen(false)
+  const mainTabHrefs = ['#top', '#cars', '#about', '#happy-families']
+  const moreActive = menuOpen || !mainTabHrefs.includes(activeLink)
   const navigateMobile = (href) => {
     setActiveLink(href)
     closeMenu()
@@ -151,8 +183,8 @@ export const Navbar = ({ onMobileNavigate }) => {
             </a>
           ))}
           <button type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-navigation"
-              className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl border text-[11px] font-semibold transition ${menuOpen ? 'border-red-100 bg-red-50/90 text-toyota shadow-sm' : 'border-transparent text-black/55 hover:bg-white/60 hover:text-ink'}`}>
-            <span className={`h-1 w-5 rounded-full ${menuOpen ? 'bg-toyota' : 'bg-transparent'}`} />
+              className={`flex min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl border text-[11px] font-semibold transition ${moreActive ? 'border-red-100 bg-red-50/90 text-toyota shadow-sm' : 'border-transparent text-black/55 hover:bg-white/60 hover:text-ink'}`}>
+              <span className={`h-1 w-5 rounded-full ${moreActive ? 'bg-toyota' : 'bg-transparent'}`} />
             <span>More</span>
           </button>
         </div>
