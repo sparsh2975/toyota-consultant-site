@@ -24,6 +24,11 @@ export default function Hero() {
             </div>
           </motion.div>
           <motion.h1 {...up(0.15)} className="font-display text-[1.625rem] font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-7xl">Your Trusted<br />Toyota Consultant</motion.h1>
+          <motion.div {...up(0.25)} className="mt-4 md:mt-6">
+            <div className="inline-flex max-w-full items-center rounded-full border border-red-400/40 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 px-4 py-2 shadow-[0_10px_30px_rgba(239,68,68,0.35)] ring-1 ring-white/10 backdrop-blur-sm md:px-6 md:py-3">
+              <span className="text-[10px] font-black uppercase tracking-[0.22em] text-white md:text-xs">YUVA MISSION • COMMERCIAL CAR LOAN • EXPERT J&K</span>
+            </div>
+          </motion.div>
           <motion.p {...up(0.3)} className="mt-4 max-w-xl text-base leading-7 text-white/75 md:mt-6 md:text-lg md:leading-8">I'm {site.name}. Tell me what you drive today and what you need tomorrow, and I'll find the Toyota that fits.</motion.p>
           <motion.div {...up(0.45)} className="mt-6 flex flex-wrap gap-3 md:mt-9 md:gap-4">
             <a href="#drive" className="btn btn-red !px-4 !py-3 text-xs md:!px-7 md:!py-3.5 md:text-sm">Book Test Drive</a>
